@@ -5,6 +5,6 @@ import java.math.BigDecimal;
 public interface TransferDao {
 
 
-    public boolean transfer(BigDecimal amount,int accountFrom, int accountTo);
+    public String transfer(BigDecimal amount,int userIdFrom, int userIdTo);
 
 }

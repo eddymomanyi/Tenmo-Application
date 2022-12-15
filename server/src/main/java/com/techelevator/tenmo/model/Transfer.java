@@ -7,13 +7,13 @@ public class Transfer {
     private int transferId;
     private String transferStatus;
     private BigDecimal amount;
-    private int accountFrom;
-    private int accountTo;
+    private int userIdFrom;
+    private int userIdTo;
 
     public Transfer(BigDecimal amount, int accountFrom, int accountTo ){
         this.amount = amount;
-        this.accountFrom = accountFrom;
-        this.accountTo = accountTo;
+        this.userIdFrom = accountFrom;
+        this.userIdTo = accountTo;
     }
 
 
@@ -41,19 +41,19 @@ public class Transfer {
         this.amount = amount;
     }
 
-    public int getAccountFrom() {
-        return accountFrom;
+    public int getUserIdFrom() {
+        return userIdFrom;
     }
 
-    public void setAccountFrom(int accountFrom) {
-        this.accountFrom = accountFrom;
+    public void setUserIdFrom(int accountFrom) {
+        this.userIdFrom = accountFrom;
     }
 
-    public int getAccountTo() {
-        return accountTo;
+    public int getUserIdTo() {
+        return userIdTo;
     }
 
-    public void setAccountTo(int accountTo) {
-        this.accountTo = accountTo;
+    public void setUserIdTo(int accountTo) {
+        this.userIdTo = accountTo;
     }
 }
