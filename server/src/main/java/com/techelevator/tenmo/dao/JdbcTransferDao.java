@@ -71,6 +71,17 @@ public class JdbcTransferDao implements TransferDao {
         return transfers;
     }
 
+    public Transfer viewTransferById(int id) {
+        String sql ="SELECT * FROM transfer WHERE transfer_id = ?";
+       SqlRowSet transferInfo = jdbcTemplate.queryForRowSet(sql, id);
+      Transfer transfer = new Transfer();
+       if(transferInfo.next()) {
+           transfer = mapRowToTransfer(transferInfo);
+       } return transfer;
+
+       }
+
+
     private Transfer mapRowToTransfer(SqlRowSet rowSet){
         Transfer transfer = new Transfer();
         transfer.setAmount(rowSet.getBigDecimal("amount"));
@@ -80,5 +91,7 @@ public class JdbcTransferDao implements TransferDao {
         transfer.setUserIdTo(rowSet.getInt("userIdTo"));
         return transfer;
     }
+
+
 
 }

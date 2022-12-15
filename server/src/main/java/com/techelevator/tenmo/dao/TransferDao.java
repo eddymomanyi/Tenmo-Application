@@ -12,4 +12,6 @@ public interface TransferDao {
 
     public List<Transfer> viewMyTransfers(String username);
 
+    public Transfer viewTransferById(int id);
+
 }

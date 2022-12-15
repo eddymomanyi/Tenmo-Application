@@ -4,10 +4,7 @@ import com.techelevator.tenmo.dao.AccountDao;
 import com.techelevator.tenmo.dao.TransferDao;
 import com.techelevator.tenmo.model.Transfer;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.security.Principal;
@@ -36,12 +33,17 @@ public class TransferController {
         return transferDao.transfer(amount, userIdFrom, userIdTo);
 
     }
-
+// Allows for users to see their transfer history
     @RequestMapping(path = "/transfer_activity", method = RequestMethod.GET)
     public List<Transfer> viewMyTransfers(Principal principal) {
         String username = principal.getName();
        return transferDao.viewMyTransfers(username);
 
+    }
+// Allows users to find url by ID
+        @RequestMapping(path = "/transfer/{id}", method = RequestMethod.GET)
+    public Transfer getTransfer(@PathVariable int id ){
+        return  transferDao.viewTransferById(id);
     }
 
 
