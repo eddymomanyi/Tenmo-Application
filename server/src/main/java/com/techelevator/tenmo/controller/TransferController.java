@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.security.Principal;
+import java.util.List;
 
 
 @RestController
@@ -28,12 +30,17 @@ public class TransferController {
     @RequestMapping(path = "/transfer", method = RequestMethod.POST)
     public String createTransfer(@RequestBody Transfer transfer){
         int userIdFrom = transfer.getUserIdFrom();
-        int userIdTo = transfer.getUserIdFrom();
+        int userIdTo = transfer.getUserIdTo();
         BigDecimal amount = transfer.getAmount();
 
         return transferDao.transfer(amount, userIdFrom, userIdTo);
 
+    }
 
+    @RequestMapping(path = "/transfer_activity", method = RequestMethod.GET)
+    public List<Transfer> viewMyTransfers(Principal principal) {
+        String username = principal.getName();
+       return transferDao.viewMyTransfers(username);
 
     }
 
