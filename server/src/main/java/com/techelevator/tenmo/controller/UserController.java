@@ -32,9 +32,9 @@ public class UserController {
     }
 // Shows user a List of users they can transfer TE bucks to
     @RequestMapping(path = "/accounts/fellow_users", method = RequestMethod.GET)
-    public List<String> getAllUsers (Principal principal) {
+    public List<User> getAllUsers (Principal principal) {
         String userRequestName = principal.getName();
-        List<String> users = userDao.getUserNamesForTransfer(userRequestName);
+        List<User> users = userDao.getUserNamesForTransfer(userRequestName);
         return users;
     }
 

@@ -57,13 +57,15 @@ public class JdbcUserDao implements UserDao {
         throw new UsernameNotFoundException("User " + username + " was not found.");
     }
 
-    public List<String> getUserNamesForTransfer (String username) {
-       List<String> userList = new ArrayList<>();
-        String sql = "SELECT username FROM tenmo_user WHERE username <> ?";
+    public List<User> getUserNamesForTransfer (String username) {
+       List<User> userList = new ArrayList<>();
+        String sql = "SELECT username, user_id FROM tenmo_user WHERE username <> ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
-        while(results.next()) {
-            userList.add(results.getString("username"));
 
+        while(results.next()) {
+            User user = mapRowToUserForDisplay(results);
+           // userList.add(results.getString("username"));
+            userList.add(user);
         }
 
         return userList;
@@ -105,6 +107,12 @@ public class JdbcUserDao implements UserDao {
         user.setPassword(rs.getString("password_hash"));
         user.setActivated(true);
         user.setAuthorities("USER");
+        return user;
+    }
+    private User mapRowToUserForDisplay(SqlRowSet rs) {
+        User user = new User();
+        user.setId(rs.getInt("user_id"));
+        user.setUsername(rs.getString("username"));
         return user;
     }
 }
