@@ -56,12 +56,23 @@ CREATE TABLE transfer (
 
 INSERT INTO tenmo_user (username, password_hash)
 VALUES ('bob', '$2a$10$G/MIQ7pUYupiVi72DxqHquxl73zfd7ZLNBoB2G6zUb.W16imI2.W2'),
-       ('user', '$2a$10$Ud8gSvRS4G1MijNgxXWzcexeXlVs4kWDOkjE7JFIkNLKEuE57JAEy');
+       ('user', '$2a$10$Ud8gSvRS4G1MijNgxXWzcexeXlVs4kWDOkjE7JFIkNLKEuE57JAEy'),
+       ('JonWick','$2a$10$Ud8gSvRS4G1MijNgxXWzcexeXlVs4kWDOkjE7JFIkNLKEuE57JAZT');
 
-INSERT INTO account (user_id, balance) VALUES (1001, 1000), (1002, 1000);
+INSERT INTO account (user_id, balance) VALUES (1001, 1000), (1002, 1000), (1003,1000);
 
---INSERT INTO transfer (amount, userIdFrom, userIdTo, transferSuccess)
---VALUES(50, 1001, 1002, true);
+INSERT INTO transfer (amount, userIdFrom, userIdTo, transferSuccess)
+VALUES(50, 1001, 1002, true);
+
+INSERT INTO transfer (amount, userIdFrom, userIdTo, transferSuccess)
+VALUES(250.67, 1001, 1002, true);
+
+INSERT INTO transfer(amount, userIdFrom, userIdTo, transferSuccess)
+VALUES(777, 1003, 1002, true);
+
+
+
+--UPDATE account SET balance = ?
 
 
 COMMIT;

@@ -13,10 +13,18 @@ public class Transfer {
     @JsonProperty("transferSuccess")
     private boolean transferSuccess;
 
+    public Transfer(int transferId, BigDecimal amount, int userIdFrom, int userIdTo) {
+        this.transferId = transferId;
+        this.amount = amount;
+        this.userIdFrom = userIdFrom;
+        this.userIdTo = userIdTo;
+    }
+
     public Transfer(BigDecimal amount, int accountFrom, int accountTo ){
         this.amount = amount;
         this.userIdFrom = accountFrom;
         this.userIdTo = accountTo;
+
     }
 
     public Transfer(){

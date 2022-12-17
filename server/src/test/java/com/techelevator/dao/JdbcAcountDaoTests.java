@@ -14,6 +14,9 @@ public class JdbcAcountDaoTests extends BaseDaoTests{
 
     private static final User USER_1 = new User(1001, "bob","$2a$10$G/MIQ7pUYupiVi72DxqHquxl73zfd7ZLNBoB2G6zUb.W16imI2.W2");
     private static final User USER_2 = new User(1002, "user","$2a$10$Ud8gSvRS4G1MijNgxXWzcexeXlVs4kWDOkjE7JFIkNLKEuE57JAEy");
+    private static final User USER_3 = new User(1003, "JonWick","$2a$10$Ud8gSvRS4G1MijNgxXWzcexeXlVs4kWDOkjE7JFIkNLKEuE57JAZT");
+
+
 
     private static final Account ACCOUNT_1 = new Account(2001, 1001);
     private static final Account ACCOUNT_2 = new Account(2002, 1002);
