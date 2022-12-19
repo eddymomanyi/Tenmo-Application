@@ -64,7 +64,7 @@ public class JdbcTransferDAOTests extends BaseDaoTests {
 
     @Test
     public void transferWorksCorrectly() {                  //200
-        String transferStatement = sut.transfer(TRANSFER_4.getAmount(),TRANSFER_4.getUserIdFrom(),TRANSFER_4.getUserIdTo());
+        String transferStatement = sut.transfer(TRANSFER_4.getAmount(),TRANSFER_4.getUserIdFrom(),TRANSFER_4.getUserIdTo(), "Approved");
         Transfer  transfer = sut.viewTransferById(TRANSFER_4.getTransferId());
         assertTransferMatch(TRANSFER_4, transfer);
                                        //800

@@ -43,7 +43,7 @@ CREATE TABLE transfer (
 	amount numeric(13,2) NOT NULL,
 	userIdFrom int NOT NULL,
 	userIdTo int NOT NULL,
-	transferSuccess boolean NOT NULL,
+	status varchar(50) NOT NULL,
 	CONSTRAINT PK_transfer_id PRIMARY KEY (transfer_id),
 	CONSTRAINT FK_transfers_userIdFrom FOREIGN KEY (userIdFrom) REFERENCES tenmo_user(user_id),
 	CONSTRAINT FK_transfers_userIdTo FOREIGN KEY (userIdTo) REFERENCES tenmo_user(user_id)

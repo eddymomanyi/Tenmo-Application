@@ -10,8 +10,8 @@ public class Transfer {
     private BigDecimal amount;
     private int userIdFrom;
     private int userIdTo;
-    @JsonProperty("transferSuccess")
-    private boolean transferSuccess;
+    //@JsonProperty("transferApproved")
+    private String status;
 
     public Transfer(int transferId, BigDecimal amount, int userIdFrom, int userIdTo) {
         this.transferId = transferId;
@@ -31,12 +31,12 @@ public class Transfer {
 
     }
 
-    public boolean transferSuccess() {
-        return transferSuccess();
+    public String getStatus() {
+        return status;
     }
 
-    public void setTransferSuccess(boolean transferSuccess) {
-        this.transferSuccess = transferSuccess;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getTransferId() {
@@ -79,7 +79,7 @@ public class Transfer {
                 ", amount= " + amount + "\n" +
                 ", userIdFrom= " + userIdFrom + "\n" +
                 ", userIdTo= " + userIdTo + "\n" +
-                ", transfer Success?= " + transferSuccess + "\n" +
+                ", transfer Status?= " + status + "\n" +
                 '}';
     }
 }
